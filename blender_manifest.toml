@@ -1,0 +1,36 @@
+schema_version = "1.0.0"
+
+id = "metahuman_facial_rig_transfer"
+version = "4.18.5"
+name = "MetaHuman Facial Rig Transfer"
+tagline = "ZWrap-style head wrap and MetaHuman facial rig transfer"
+maintainer = "Souhail Ninia"
+type = "add-on"
+
+# Targeting Blender 5.1; the bundled rig asset requires Blender 4.5 or newer.
+blender_version_min = "4.5.0"
+
+license = ["SPDX:GPL-3.0-or-later"]
+tags = ["Rigging", "Mesh", "Modeling"]
+
+[permissions]
+files = "Read bundled assets and user-selected animation and FBX files"
+
+[build]
+paths_exclude_pattern = [
+    "__pycache__/",
+    "*.pyc",
+    "/build/",
+    "/Build/",
+    "*.zip",
+    "*.blend1",
+    "*.blend2",
+    ".git/",
+    # Render output an artist dropped next to the add-on; not part of it.
+    "/anim test/",
+    "/tests/",
+    "/ziptest/",
+    # Dev-only: baking a .dna needs Epic's bindings, which ship with the
+    # Character DNA add-on and are not redistributed here.
+    "/tools/",
+]
